@@ -31,6 +31,6 @@ public class UpdateMenuUseCase implements UpdateMenu {
                     menuDTO.setId(menu.getId());
                     return menuRepository.save(mapper.map(menuDTO, Menu.class));
                 })
-                .map(book -> mapper.map(book, MenuDTO.class));
+                .map(menu -> mapper.map(menu, MenuDTO.class));
     }
 }
