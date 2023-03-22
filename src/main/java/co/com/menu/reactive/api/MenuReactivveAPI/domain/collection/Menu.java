@@ -23,7 +23,7 @@ public class Menu {
 
     private Integer promo;
 
-    private Set<Item> itemsList = new HashSet<>();
+    private Set<ItemDTO> itemsList = new HashSet<>();
 
 
     public Menu(String date, String version, Integer promo) {
@@ -32,6 +32,11 @@ public class Menu {
         this.version = version;
         this.promo = promo;
         this.itemsList = new HashSet<>();
+    }
+
+    public Menu addItemToMenu(ItemDTO itemdto){
+        this.itemsList.add(itemdto);
+        return this;
     }
 
 }

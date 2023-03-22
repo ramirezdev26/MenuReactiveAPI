@@ -1,6 +1,7 @@
 package co.com.menu.reactive.api.MenuReactivveAPI.domain.dto;
 
-import co.com.menu.reactive.api.MenuReactivveAPI.domain.collection.Item;
+import co.com.menu.reactive.api.MenuReactivveAPI.domain.collection.ItemDTO;
+import co.com.menu.reactive.api.MenuReactivveAPI.domain.collection.Menu;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,7 +22,7 @@ public class MenuDTO {
 
     private Integer promo;
 
-    private Set<Item> itemsList = new HashSet<>();
+    private Set<ItemDTO> itemsList = new HashSet<>();
 
     public MenuDTO(String date, String version, Integer promo) {
         this.date = date;
@@ -29,4 +30,8 @@ public class MenuDTO {
         this.promo = promo;
     }
 
+    public MenuDTO addItemToMenu(ItemDTO itemdto){
+        this.itemsList.add(itemdto);
+        return this;
+    }
 }
