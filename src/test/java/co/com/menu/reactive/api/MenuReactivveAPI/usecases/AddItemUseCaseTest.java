@@ -30,7 +30,6 @@ class AddItemUseCaseTest {
     @Mock
     IMenuRepository repoMock;
 
-    //@Mock
     ModelMapper mapper;
     @Mock
     RabbitTemplate rabbitTemplate;

@@ -22,9 +22,11 @@ public class SaveMenuUseCase implements SaveMenu {
     @Override
     public Mono<MenuDTO> save(MenuDTO menuDTO) {
 
-        return this.menuRepository.save(mapper.map(menuDTO, Menu.class))
+        return this.menuRepository
+                .save(mapper.map(menuDTO, Menu.class))
                 .switchIfEmpty(Mono.error(new Throwable("Something went wrong with the request")))
-                .map(menu -> mapper.map(menu, MenuDTO.class));
+                .map(menu -> mapper.map(menu, MenuDTO.class))
+                .onErrorResume(Mono::error);
     }
 
 }

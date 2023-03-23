@@ -1,5 +1,7 @@
 package co.com.menu.reactive.api.MenuReactivveAPI.domain.collection;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,8 +19,12 @@ public class Menu {
     @Id
     private String id;
 
+    @NotBlank(message="Empty field error")
+    @NotNull(message ="date is required")
     private String date;
 
+    @NotBlank(message="Empty field error")
+    @NotNull(message ="version is required")
     private String version;
 
     private Integer promo;
